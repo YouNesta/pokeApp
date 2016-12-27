@@ -1,4 +1,5 @@
 import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,6 +29,7 @@ import {PokemonService} from "./pokemon/pokemon.service";
   ],
   imports: [
     MaterialModule.forRoot(),
+    FlexLayoutModule.forRoot()
     AppRoutingModule,
     BrowserModule,
     FormsModule,
