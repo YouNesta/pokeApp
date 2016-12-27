@@ -1,3 +1,11 @@
-<p>
-  pokemon-details works!
-</p>
+<md-card>
+  <md-card-header>
+    <img md-card-avatar (error)="pokemon.image = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'" [src]="pokemon.image">
+    <md-card-title>#{{pokemon.id}}</md-card-title>
+    <md-card-subtitle>
+      <a [routerLink]="['/pokemon', pokemon.id]" routerLinkActive="active">{{pokemon.name | uppercase}}</a></md-card-subtitle>
+  </md-card-header>
+  <button md-icon-button (click)="pokemon.toChoosen()">
+    <md-icon class="md-24">favorite</md-icon>
+  </button>
+</md-card>
