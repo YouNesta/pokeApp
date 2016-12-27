@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PokemonService} from "../pokemon.service";
 import {Pokemon} from "../pokemon";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-pokemon-list',
@@ -9,9 +10,9 @@ import {Pokemon} from "../pokemon";
 })
 export class PokemonListComponent implements OnInit {
   private pokemons: Pokemon[] = [];
-
-  constructor(private service: PokemonService) {
-    this.getPokemons(0);
+  public choosenPage: boolean;
+  constructor(private service: PokemonService, private router: Router) {
+    console.log()
   }
 
   getPokemons(page){
@@ -27,7 +28,13 @@ export class PokemonListComponent implements OnInit {
           for(var i in response.results){
             var name = response.results[i].name;
             var url = response.results[i].url;
-            this.pokemons.push(new Pokemon(name, url))
+            var pokemon = new Pokemon(name, url);
+
+            if(this.router.url === "/" && pokemon.isChoosen())
+              this.pokemons.push(pokemon)
+            if(this.router.url === "/pokemon")
+              this.pokemons.push(pokemon)
+
           }
         },
         error => {
@@ -37,6 +44,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getPokemons(0);
   }
 
 }
