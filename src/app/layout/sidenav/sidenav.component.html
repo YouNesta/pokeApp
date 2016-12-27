@@ -1,4 +1,14 @@
-<md-sidenav>
-  <button md-button #closeStartButton (click)="start.close()">Close</button>
+<md-sidenav #sidenav>
+  <button md-button #closeStartButton (click)="sidenav.close()">Close</button>
+  <md-nav-list>
+    <md-list-item>
+      <md-icon md-line>home</md-icon>
+      <a md-line routerLink="/pokemon">All</a>
+    </md-list-item>
+    <md-list-item>
+      <md-icon md-line>home</md-icon>
+      <a md-line routerLink="/">Choosen</a>
+    </md-list-item>
+  </md-nav-list>
 </md-sidenav>
-<button md-button (click)="start.open()">Open start sidenav</button>
+<button md-button (click)="sidenav.open()">Open start sidenav</button>
