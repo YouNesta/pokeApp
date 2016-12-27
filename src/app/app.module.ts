@@ -29,7 +29,6 @@ import {PokemonService} from "./pokemon/pokemon.service";
   ],
   imports: [
     MaterialModule.forRoot(),
-    FlexLayoutModule.forRoot()
     AppRoutingModule,
     BrowserModule,
     FormsModule,
